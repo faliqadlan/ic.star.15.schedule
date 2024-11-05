@@ -1,11 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="lookup_excel" this:lookup_excel.in_config_path="data\Config.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:i="clr-namespace:ic_star_15_schedule;assembly=DataService.ic_star_15_schedule" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uda="clr-namespace:UiPath.DataService.Activities;assembly=UiPath.DataService.Activities.Core" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugace="clr-namespace:UiPath.GSuite.Activities.Calendar.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugacm="clr-namespace:UiPath.GSuite.Activities.Calendar.Models;assembly=UiPath.GSuite.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="lookup_excel" this:lookup_excel.in_config_path="data\Config.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:i="clr-namespace:ic_star_15_schedule;assembly=DataService.ic_star_15_schedule" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uda="clr-namespace:UiPath.DataService.Activities;assembly=UiPath.DataService.Activities.Core" xmlns:udam="clr-namespace:UiPath.DataService.Activities.Models;assembly=UiPath.DataService.Activities.Core" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugace="clr-namespace:UiPath.GSuite.Activities.Calendar.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugacm="clr-namespace:UiPath.GSuite.Activities.Calendar.Models;assembly=UiPath.GSuite.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_config_path" Type="InArgument(x:String)">
       <x:Property.Attributes>
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
     </x:Property>
-    <x:Property Name="config_path" Type="InArgument(x:String)" />
+    <x:Property Name="config_path" Type="InOutArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -251,7 +251,7 @@
       <AssemblyReference>DataService.ic_star_15_schedule</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="lookup_excel" sap:VirtualizedContainerService.HintSize="807.2,2895.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="lookup_excel" sap:VirtualizedContainerService.HintSize="807.2,3114.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="templatePath" />
       <Variable x:TypeArguments="sd:DataTable" Name="templateDT" />
@@ -306,13 +306,13 @@
     <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[templateDT]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="516.8,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="schedule" WorkbookPath="[templatePath]" />
     <ui:OutputDataTable Text="{x:Null}" DataTable="[templateDT]" DisplayName="Output Data Table as Text" sap:VirtualizedContainerService.HintSize="516.8,112.8" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" />
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="516.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_8" Message="[templateDT]" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[templateDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="516.8,1775.2" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[templateDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="516.8,1994.4" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="483.2,1586.4" sap2010:WorkflowViewState.IdRef="Sequence_30">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="483.2,1805.6" sap2010:WorkflowViewState.IdRef="Sequence_30">
             <Sequence.Variables>
               <Variable x:TypeArguments="s:DateTimeOffset" Name="scheduleDataDTO" />
               <Variable x:TypeArguments="x:String" Name="emailInv" />
@@ -380,18 +380,33 @@
                 </scg:List>
               </uda:QueryEntityRecords.FilterValues>
             </uda:QueryEntityRecords>
-            <ui:ForEach x:TypeArguments="i:contractSchedules" CurrentIndex="{x:Null}" DisplayName="For Each currentEntityUpdate" sap:VirtualizedContainerService.HintSize="449.6,227.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[updateEntity]">
+            <ui:ForEach x:TypeArguments="i:contractSchedules" CurrentIndex="{x:Null}" DisplayName="For Each currentEntityUpdate" sap:VirtualizedContainerService.HintSize="449.6,446.4" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[updateEntity]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="i:contractSchedules">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="i:contractSchedules" Name="currentEntityUpdate" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,89.6" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,308.8" sap2010:WorkflowViewState.IdRef="Sequence_31">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
+                    <uda:UpdateEntityRecord x:TypeArguments="i:contractSchedules" InputEntity="{x:Null}" IsInRecordView="{x:Null}" OutputEntity="{x:Null}" VisibleDynamicPropertiesInfo="{x:Null}" ContinueOnError="False" DisplayName="Update Entity Record" EntityId="c502a0ac-e296-ef11-8473-000d3adbee49" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="382.4,248.8" sap2010:WorkflowViewState.IdRef="UpdateEntityRecord`1_1" InputEntityInFieldView="[new ic_star_15_schedule.contractSchedules() With {  .scheduleDate = scheduleDataDTO, .Id = currentEntityUpdate.Id }]" RecordId="[currentEntityUpdate.Id]" TimeoutInMs="30000">
+                      <uda:UpdateEntityRecord.State>
+                        <udam:RecordState RequiredFieldCount="4">
+                          <udam:RecordState.SelectedFields>
+                            <scg:List x:TypeArguments="udam:DynamicEntityField" Capacity="1">
+                              <udam:DynamicEntityField Id="4dca7dd5-e296-ef11-8473-000d3adbee49" Name="scheduleDate">
+                                <udam:DynamicEntityField.ArgumentValue>
+                                  <InArgument x:TypeArguments="s:DateTimeOffset">[scheduleDataDTO]</InArgument>
+                                </udam:DynamicEntityField.ArgumentValue>
+                              </udam:DynamicEntityField>
+                            </scg:List>
+                          </udam:RecordState.SelectedFields>
+                        </udam:RecordState>
+                      </uda:UpdateEntityRecord.State>
+                    </uda:UpdateEntityRecord>
                   </Sequence>
                 </ActivityAction>
               </ui:ForEach.Body>
