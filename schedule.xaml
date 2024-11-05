@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="lookup_excel" this:lookup_excel.in_config_path="data\Config.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uda="clr-namespace:UiPath.DataService.Activities;assembly=UiPath.DataService.Activities.Core" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugace="clr-namespace:UiPath.GSuite.Activities.Calendar.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugacm="clr-namespace:UiPath.GSuite.Activities.Calendar.Models;assembly=UiPath.GSuite.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="lookup_excel" this:lookup_excel.in_config_path="data\Config.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:i="clr-namespace:ic_star_15_schedule;assembly=DataService.ic_star_15_schedule" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uda="clr-namespace:UiPath.DataService.Activities;assembly=UiPath.DataService.Activities.Core" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugace="clr-namespace:UiPath.GSuite.Activities.Calendar.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugacm="clr-namespace:UiPath.GSuite.Activities.Calendar.Models;assembly=UiPath.GSuite.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_config_path" Type="InArgument(x:String)">
       <x:Property.Attributes>
@@ -124,6 +124,7 @@
       <x:String>UiPath.GSuite.Activities.Calendar.Models</x:String>
       <x:String>UiPath.GSuite.Activities</x:String>
       <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>ic_star_15_schedule</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -247,9 +248,10 @@
       <AssemblyReference>DataService.ic_star_15</AssemblyReference>
       <AssemblyReference>DocumentFormat.OpenXml</AssemblyReference>
       <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>DataService.ic_star_15_schedule</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="lookup_excel" sap:VirtualizedContainerService.HintSize="807.2,2607.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="lookup_excel" sap:VirtualizedContainerService.HintSize="807.2,2895.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="templatePath" />
       <Variable x:TypeArguments="sd:DataTable" Name="templateDT" />
@@ -260,7 +262,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[Not String.IsNullOrEmpty(config_path)]" sap:VirtualizedContainerService.HintSize="500.8,424.8" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[Not String.IsNullOrEmpty(config_path)]" sap:VirtualizedContainerService.HintSize="516.8,424.8" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="467.2,164.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
@@ -288,12 +290,12 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:ReadCell WorkbookPathResource="{x:Null}" Cell="B5" DisplayName="Get template path from config" sap:VirtualizedContainerService.HintSize="500.8,120" sap2010:WorkflowViewState.IdRef="ReadCell_1" SheetName="Settings" WorkbookPath="[in_config_path]">
+    <ui:ReadCell WorkbookPathResource="{x:Null}" Cell="B5" DisplayName="Get template path from config" sap:VirtualizedContainerService.HintSize="516.8,120" sap2010:WorkflowViewState.IdRef="ReadCell_1" SheetName="Settings" WorkbookPath="[in_config_path]">
       <ui:ReadCell.Result>
         <OutArgument x:TypeArguments="x:String">[templatePath]</OutArgument>
       </ui:ReadCell.Result>
     </ui:ReadCell>
-    <Assign sap:VirtualizedContainerService.HintSize="500.8,113.6" sap2010:WorkflowViewState.IdRef="Assign_8">
+    <Assign sap:VirtualizedContainerService.HintSize="516.8,113.6" sap2010:WorkflowViewState.IdRef="Assign_8">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[templatePath]</OutArgument>
       </Assign.To>
@@ -301,33 +303,34 @@
         <InArgument x:TypeArguments="x:String" xml:space="preserve">[templatePath +  "\"+ "template-schedule.xlsx"]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[templateDT]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="500.8,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="schedule" WorkbookPath="[templatePath]" />
-    <ui:OutputDataTable Text="{x:Null}" DataTable="[templateDT]" DisplayName="Output Data Table as Text" sap:VirtualizedContainerService.HintSize="500.8,112.8" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="500.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_8" Message="[templateDT]" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[templateDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="500.8,1487.2" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[templateDT]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="516.8,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="schedule" WorkbookPath="[templatePath]" />
+    <ui:OutputDataTable Text="{x:Null}" DataTable="[templateDT]" DisplayName="Output Data Table as Text" sap:VirtualizedContainerService.HintSize="516.8,112.8" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="516.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_8" Message="[templateDT]" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[templateDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="516.8,1775.2" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="467.2,1298.4" sap2010:WorkflowViewState.IdRef="Sequence_30">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="483.2,1586.4" sap2010:WorkflowViewState.IdRef="Sequence_30">
             <Sequence.Variables>
               <Variable x:TypeArguments="s:DateTimeOffset" Name="scheduleDataDTO" />
               <Variable x:TypeArguments="x:String" Name="emailInv" />
               <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="emailNumerable" />
+              <Variable x:TypeArguments="scg:IList(i:contractSchedules)" Name="updateEntity" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim parsedDate As DateTimeOffset = DateTimeOffset.ParseExact(scheduleDateString, &quot;MM/dd/yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture)&#xA;Dim dateOnly As New DateTimeOffset(parsedDate.Year, parsedDate.Month, parsedDate.Day, 0, 0, 0, parsedDate.Offset)&#xA;scheduleDateDTO = dateOnly" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="433.6,196.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+            <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim parsedDate As DateTimeOffset = DateTimeOffset.ParseExact(scheduleDateString, &quot;MM/dd/yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture)&#xA;Dim dateOnly As New DateTimeOffset(parsedDate.Year, parsedDate.Month, parsedDate.Day, 0, 0, 0, parsedDate.Offset)&#xA;scheduleDateDTO = dateOnly" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="449.6,196.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
               <ui:InvokeCode.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="scheduleDateString">[CurrentRow("scheduleDate").ToString]</InArgument>
                 <OutArgument x:TypeArguments="s:DateTimeOffset" x:Key="scheduleDateDTO">[scheduleDataDTO]</OutArgument>
               </ui:InvokeCode.Arguments>
             </ui:InvokeCode>
-            <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_9">
+            <Assign sap:VirtualizedContainerService.HintSize="449.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_9">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[emailInv]</OutArgument>
               </Assign.To>
@@ -335,14 +338,14 @@
                 <InArgument x:TypeArguments="x:String">[CurrentRow("email").ToString]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:InvokeCode ContinueOnError="{x:Null}" Code="' Assuming you have a string variable&#xA;Dim myString As String = emailInput&#xA;&#xA;' Initialize the array with a size&#xA;Dim stringArray As String() = New String() {}&#xA;&#xA;' Append the string to the array&#xA;stringArray = stringArray.Concat(New String() {myString}).ToArray()&#xA;&#xA;' Convert the array to IEnumerable(Of String)&#xA;Dim stringEnumerable As IEnumerable(Of String) = stringArray.AsEnumerable()&#xA;&#xA;enumerableEmail = stringEnumerable&#xA;&#xA;' Print the array&#xA;For Each email In enumerableEmail&#xA;    System.Console.WriteLine(email)&#xA;Next&#xA;" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="433.6,196.8" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+            <ui:InvokeCode ContinueOnError="{x:Null}" Code="' Assuming you have a string variable&#xA;Dim myString As String = emailInput&#xA;&#xA;' Initialize the array with a size&#xA;Dim stringArray As String() = New String() {}&#xA;&#xA;' Append the string to the array&#xA;stringArray = stringArray.Concat(New String() {myString}).ToArray()&#xA;&#xA;' Convert the array to IEnumerable(Of String)&#xA;Dim stringEnumerable As IEnumerable(Of String) = stringArray.AsEnumerable()&#xA;&#xA;enumerableEmail = stringEnumerable&#xA;&#xA;' Print the array&#xA;For Each email In enumerableEmail&#xA;    System.Console.WriteLine(email)&#xA;Next&#xA;" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="449.6,196.8" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
               <ui:InvokeCode.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="emailInput">[emailInv]</InArgument>
                 <OutArgument x:TypeArguments="scg:IEnumerable(x:String)" x:Key="enumerableEmail">[emailNumerable]</OutArgument>
               </ui:InvokeCode.Arguments>
             </ui:InvokeCode>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[emailNumerable]" />
-            <uga:CreateEventConnections Calendar="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Location="{x:Null}" OptionalAttendees="{x:Null}" Recurrence="{x:Null}" ResourceAttendees="{x:Null}" Result="{x:Null}" AddConferenceData="False" AllDayEvent="False" AuthScopesInvalid="False" BrowserCalendarFriendlyName="user1@oneindonesia.id" BrowserCalendarId="user1@oneindonesia.id" CalendarInputMode="Browse" ConnectionId="b65a12b3-21bc-4c43-89f8-c7012e12f76b" Description="[string.Format(&quot;&lt;P&gt;&lt;SPAN&gt;scheduling talen review from rpa&lt;/SPAN&gt;&lt;/P&gt;&quot;)]" DisplayName="Create Event" EndDateTime="[scheduleDataDTO]" GuestCanInviteOthers="True" GuestCanModifyEvent="True" GuestCanSeeAttendeesList="True" sap:VirtualizedContainerService.HintSize="433.6,444.8" sap2010:WorkflowViewState.IdRef="CreateEventConnections_2" PreferredReturnTimezone="Asia/Jakarta" RequiredAttendees="[emailNumerable]" SendNotification="ALL" ShowAs="Opaque" StartDateTime="[scheduleDataDTO]" Timezone="Asia/Jakarta" Title="talent review" UseConnectionService="True" Visibility="DEFAULT">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="449.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[emailNumerable]" />
+            <uga:CreateEventConnections Calendar="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Location="{x:Null}" OptionalAttendees="{x:Null}" Recurrence="{x:Null}" ResourceAttendees="{x:Null}" Result="{x:Null}" AddConferenceData="False" AllDayEvent="False" AuthScopesInvalid="False" BrowserCalendarFriendlyName="user1@oneindonesia.id" BrowserCalendarId="user1@oneindonesia.id" CalendarInputMode="Browse" ConnectionId="b65a12b3-21bc-4c43-89f8-c7012e12f76b" Description="[string.Format(&quot;&lt;P&gt;&lt;SPAN&gt;scheduling talen review from rpa&lt;/SPAN&gt;&lt;/P&gt;&quot;)]" DisplayName="Create Event" EndDateTime="[scheduleDataDTO]" GuestCanInviteOthers="True" GuestCanModifyEvent="True" GuestCanSeeAttendeesList="True" sap:VirtualizedContainerService.HintSize="449.6,444.8" sap2010:WorkflowViewState.IdRef="CreateEventConnections_2" PreferredReturnTimezone="Asia/Jakarta" RequiredAttendees="[emailNumerable]" SendNotification="ALL" ShowAs="Opaque" StartDateTime="[scheduleDataDTO]" Timezone="Asia/Jakarta" Title="talent review" UseConnectionService="True" Visibility="DEFAULT">
               <uga:CreateEventConnections.CalendarArgument>
                 <ugacm:CalendarArgument Backup="{x:Reference __ReferenceID0}" ConnectionDescriptor="{x:Null}" Existing="{x:Null}" BrowserId="user1@oneindonesia.id" ConnectionKey="b65a12b3-21bc-4c43-89f8-c7012e12f76b" FriendlyName="user1@oneindonesia.id" InputMode="Browse" />
               </uga:CreateEventConnections.CalendarArgument>
@@ -354,7 +357,45 @@
                 </usau:BackupSlot>
               </uga:CreateEventConnections.CalendarIdBackup>
             </uga:CreateEventConnections>
-            <uda:QueryEntityRecords x:TypeArguments="uda:DefaultEntity" EntityId="{x:Null}" FilterArguments="{x:Null}" FilterValues="{x:Null}" OutputRecords="{x:Null}" TotalRecords="{x:Null}" ContinueOnError="False" DisplayName="Query Entity Records" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="433.6,112" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_1" QueriedEntityId="00000000-0000-0000-0000-000000000000" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="100" />
+            <uda:QueryEntityRecords x:TypeArguments="i:contractSchedules" TotalRecords="{x:Null}" ContinueOnError="False" DisplayName="Query Entity Records" EntityId="c502a0ac-e296-ef11-8473-000d3adbee49" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="449.6,172.8" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_1" OutputRecords="[updateEntity]" QueriedEntityId="c502a0ac-e296-ef11-8473-000d3adbee49" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="100">
+              <uda:QueryEntityRecords.FilterArguments>
+                <uda:FilterArgument FilterActivityType="{x:Null}">
+                  <uda:FilterArgument.Filter>
+                    <uda:GroupFilter Index="0" Operator="AND">
+                      <uda:GroupFilter.Filters>
+                        <scg:List x:TypeArguments="uda:SimpleFilter" Capacity="4">
+                          <uda:SimpleFilter ExpressionValue="{x:Null}" FieldName="noEmployee" FieldType="UiPath.DataService.Core.Models.EntityField" Operator="=" ValueIndex="0" />
+                        </scg:List>
+                      </uda:GroupFilter.Filters>
+                      <uda:GroupFilter.Groups>
+                        <scg:List x:TypeArguments="uda:GroupFilter" Capacity="0" />
+                      </uda:GroupFilter.Groups>
+                    </uda:GroupFilter>
+                  </uda:FilterArgument.Filter>
+                </uda:FilterArgument>
+              </uda:QueryEntityRecords.FilterArguments>
+              <uda:QueryEntityRecords.FilterValues>
+                <scg:List x:TypeArguments="InArgument" Capacity="4">
+                  <InArgument x:TypeArguments="x:String">[CurrentRow("noEmployee").ToString]</InArgument>
+                </scg:List>
+              </uda:QueryEntityRecords.FilterValues>
+            </uda:QueryEntityRecords>
+            <ui:ForEach x:TypeArguments="i:contractSchedules" CurrentIndex="{x:Null}" DisplayName="For Each currentEntityUpdate" sap:VirtualizedContainerService.HintSize="449.6,227.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[updateEntity]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="i:contractSchedules">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="i:contractSchedules" Name="currentEntityUpdate" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,89.6" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
